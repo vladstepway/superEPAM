@@ -33,12 +33,12 @@ public class TypeTester {
         System.out.printf("%d %% %d = %d\n", a, b, c);
         try {
             c = a / 0;
-        }catch (ArithmeticException e){
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
         try {
             c = a % 0;
-        }catch (ArithmeticException e){
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
 
@@ -363,14 +363,14 @@ public class TypeTester {
         c = (byte) (a % b);
         System.out.printf("%d %% %d = (byte)%d\n", a, b, c);
 
-        try{
-            c = (byte) (a/b);
-        }catch (ArithmeticException e){
+        try {
+            c = (byte) (a / b);
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
-        try{
-            c = (byte) (a%b);
-        }catch (ArithmeticException e){
+        try {
+            c = (byte) (a % b);
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
 
@@ -396,7 +396,7 @@ public class TypeTester {
         System.out.printf("--%d = %d\n", a, --a);
 
         //postfix decrement
-        a = (byte)127;
+        a = (byte) 127;
         System.out.printf("%d-- = %d\n", a, a--);
 
         System.out.println("======================");
@@ -439,7 +439,7 @@ public class TypeTester {
         System.out.printf("%s << 1 = (byte)%s\n\n", Integer.toBinaryString(a),
                 Integer.toBinaryString(c));
 
-       // right shift
+        // right shift
         c = (byte) (a >> 1);
         System.out.printf("%d >> 1 = (byte)%d\n", a, c);
         System.out.println("in binary form:");
@@ -447,7 +447,7 @@ public class TypeTester {
                 Integer.toBinaryString(c));
 
         // right shift with negative number
-        a = (byte)-5;
+        a = (byte) -5;
         c = (byte) (a >> 1);
         System.out.printf("%d >> 1 = %d\n", a, c);
         System.out.println("in binary form:");
@@ -455,14 +455,14 @@ public class TypeTester {
                 Integer.toBinaryString(c));
 
         // zero fill right shift
-        a =(byte) 5;
+        a = (byte) 5;
         c = (byte) (a >>> 1);
         System.out.printf("%d >>> 1 = %d\n", a, c);
         System.out.println("in binary form:");
         System.out.printf("%s >>> 1 = %s\n", Integer.toBinaryString(a),
                 Integer.toBinaryString(c));
         // zero fill right shift with negative number
-        a =(byte) -5;
+        a = (byte) -5;
         c = (byte) (a >>> 1);
         System.out.printf("%d >>> 1 = %d\n", a, c);
         System.out.println("in binary form:");
@@ -474,8 +474,8 @@ public class TypeTester {
         System.out.println("| Assignment operators |");
         System.out.println("========================");
 
-        c = (byte)7;
-        a = (byte)5;
+        c = (byte) 7;
+        a = (byte) 5;
         System.out.printf("%d += %d --> c = %d\n", c, a, c += a);
         System.out.printf("%d -= %d --> c = %d\n", c, a, c -= a);
         System.out.printf("%d *= %d --> c = %d\n", c, a, c *= a);
@@ -580,7 +580,7 @@ public class TypeTester {
 
     }
 
-    public static void testShort(){
+    public static void testShort() {
         System.out.println("\n ************** TEST FOR SHORT****************\n");
         short a = 23003, b = 150, c;
         System.out.println("===========================");
@@ -607,14 +607,14 @@ public class TypeTester {
         c = (short) (a % b);
         System.out.printf("%d %% %d = %d\n", a, b, c);
 
-        try{
-            c = (short) (a/0);
-        }catch (ArithmeticException e){
+        try {
+            c = (short) (a / 0);
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
-        try{
-            c = (short) (a%0);
-        }catch (ArithmeticException e){
+        try {
+            c = (short) (a % 0);
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
 
@@ -813,24 +813,22 @@ public class TypeTester {
         System.out.printf("short = String : c = Short.parseShort(%s) ->> c = %d\n", str1, c);
         try {
             c = Short.parseShort(str2);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println(e.toString()); // java.lang.NumberFormatException: For input string: "string"
         }
         System.out.printf("short = String : c = Short.parseShort(%s) ->> Compile Error\n", str2);
         //c = str1;
         System.out.printf("short = String : c = (short)%s ->> Compile Error\n", str1);
-       // c = (short)str2;
+        // c = (short)str2;
         System.out.printf("short = String : c = (short)%s ->> Compile Error\n", str2);
 
-       // c = (short)student;
+        // c = (short)student;
         System.out.printf("int = Student : c = " + student.toString() + " ->> Compile Error\n");
-
-
 
 
     }
 
-    public static void testLong(){
+    public static void testLong() {
         System.out.println("\n ************** TEST FOR LONG****************\n");
         long a = 23002342343232423L, b = 23423523L, c;
         System.out.println("===========================");
@@ -850,26 +848,26 @@ public class TypeTester {
         System.out.printf("%d * %d = %d\n", a, b, c);
 
         //division
-        c =  (a / b);
+        c = (a / b);
         System.out.printf("%d / %d = %d\n", a, b, c);
 
         //modulus
         c = a % b;
         System.out.printf("%d %% %d = %d\n", a, b, c);
 
-        try{
-            c = a/0;
-        }catch (ArithmeticException e){
+        try {
+            c = a / 0;
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
-        try{
-            c = a%0;
-        }catch (ArithmeticException e){
+        try {
+            c = a % 0;
+        } catch (ArithmeticException e) {
             System.out.println(e.toString());
         }
 
         //unary minus
-        a =  52322234453452L;
+        a = 52322234453452L;
         c = -a;
         System.out.printf("-%d = %d\n", a, c);
 
@@ -878,7 +876,7 @@ public class TypeTester {
         System.out.printf("+%d = %d\n", a, c);
 
         //prefix increment
-        a =  32423523423L;
+        a = 32423523423L;
         System.out.printf("++%d = %d\n", a, ++a);
 
         //postfix increment
@@ -898,7 +896,7 @@ public class TypeTester {
         System.out.println("======================");
 
         // bitwise AND
-        a =  23427967575L;
+        a = 23427967575L;
         c = (a & b);
         System.out.printf("%d & %d = %d\n", a, b, c);
         System.out.println("in binary form:");
@@ -906,7 +904,7 @@ public class TypeTester {
                 Long.toBinaryString(b), Long.toBinaryString(c));
 
         // bitwise OR
-        c =  (a | b);
+        c = (a | b);
         System.out.printf("%d | %d = %d\n", a, b, c);
         System.out.println("in binary form:");
         System.out.printf("%s | %s = %s\n\n", Long.toBinaryString(a),
@@ -927,22 +925,22 @@ public class TypeTester {
                 Long.toBinaryString(c));
 
         //left shift
-        c =  (a << 1);
+        c = (a << 1);
         System.out.printf("%d << 1 = %d\n", a, c);
         System.out.println("in binary form:");
         System.out.printf("%s << 1 = %s\n\n", Long.toBinaryString(a),
                 Long.toBinaryString(c));
 
         //right shift
-        c =  (a >> 1);
+        c = (a >> 1);
         System.out.printf("%d >> 1 = %d\n", a, c);
         System.out.println("in binary form:");
         System.out.printf("%s >> 1 = %s\n\n", Long.toBinaryString(a),
                 Long.toBinaryString(c));
 
         // right shift with negative number
-        a =  -3_572_342_992_349L;
-        c =  (a >> 1);
+        a = -3_572_342_992_349L;
+        c = (a >> 1);
         System.out.printf("%d >> 1 = %d\n", a, c);
         System.out.println("in binary form:");
         System.out.printf("%s >> 1 = %s\n\n", Long.toBinaryString(a),
@@ -950,13 +948,13 @@ public class TypeTester {
 
         // zero fill right shift
         a = 999999999999999999L;
-        c =  (a >>> 1);
+        c = (a >>> 1);
         System.out.printf("%d >>> 1 = %d\n", a, c);
         System.out.println("in binary form:");
         System.out.printf("%s >>> 1 = %s\n", Long.toBinaryString(a),
                 Long.toBinaryString(c));
         // zero fill right shift with negative number
-        a =  -424332423425L;
+        a = -424332423425L;
         c = (a >>> 1);
         System.out.printf("%d >>> 1 = %d\n", a, c);
         System.out.println("in binary form:");
@@ -1046,7 +1044,7 @@ public class TypeTester {
 
         c = bt;
         System.out.printf("long = byte : c = %d ->> c = %d\n", bt, c);
-        c =  inter;
+        c = inter;
         System.out.printf("long = int : c = %d ->> c = %d\n", inter, c);
         c = ch;
         System.out.printf("long = char : c = '%c' ->> c = %d\n", ch, c);
@@ -1063,7 +1061,7 @@ public class TypeTester {
         System.out.printf("long = String : c = Long.parseLong(%s) ->> c = %d\n", str1, c);
         try {
             c = Long.parseLong(str2);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println(e.toString()); // java.lang.NumberFormatException: For input string: "string"
         }
         System.out.printf("long = String : c = Long.parseLong(%s) ->> Compile Error\n", str2);
@@ -1077,7 +1075,7 @@ public class TypeTester {
 
     }
 
-    public static void testFloat(){
+    public static void testFloat() {
         System.out.println("\n ************** TEST FOR FLOAT****************\n");
         float a = 324.12f, b = 12.3f, c;
         System.out.println("===========================");
@@ -1097,18 +1095,18 @@ public class TypeTester {
         System.out.printf("%f * %f = %f\n", a, b, c);
 
         //division
-        c =  (a / b);
+        c = (a / b);
         System.out.printf("%f / %f = %f\n", a, b, c);
 
         //modulus
         c = a % b;
         System.out.printf("%f %% %f = %f\n", a, b, c);
 
-       c = a/0;
-        System.out.printf("%f = %f / 0 ",c,a);
+        c = a / 0;
+        System.out.printf("%f = %f / 0 ", c, a);
 
         //unary minus
-        a =  435.5f;
+        a = 435.5f;
         c = -a;
         System.out.printf("-%f = %f\n", a, c);
 
@@ -1117,7 +1115,7 @@ public class TypeTester {
         System.out.printf("+%f = %f\n", a, c);
 
         //prefix increment
-        a =  435.f;
+        a = 435.f;
         System.out.printf("++%f = %f\n", a, ++a);
 
         //postfix increment
@@ -1135,6 +1133,9 @@ public class TypeTester {
         System.out.println("======================");
         System.out.println("| Bitwise operators |");
         System.out.println("======================");
+
+
+        System.out.println("There is no any bitwise operators for float\n");
 
 //        // bitwise AND
 //        a =  345.1f;
@@ -1180,7 +1181,6 @@ public class TypeTester {
 //        a =  -424332423425L;
 //        c = (a >>> 1);
 //        System.out.printf("%f >>> 1 = %f\n", a, c);
-
 
 
         System.out.println("========================");
@@ -1265,7 +1265,7 @@ public class TypeTester {
 
         c = bt;
         System.out.printf("float = byte : c = %d ->> c = %f\n", bt, c);
-        c =  inter;
+        c = inter;
         System.out.printf("float = int : c = %d ->> c = %f\n", inter, c);
         c = ch;
         System.out.printf("float = char : c = '%c' ->> c = %f\n", ch, c);
@@ -1282,7 +1282,7 @@ public class TypeTester {
         System.out.printf("long = String : c = Float.parseFloat(%s) ->> c = %f\n", str1, c);
         try {
             c = Float.parseFloat(str2);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println(e.toString()); // java.lang.NumberFormatException: For input string: "string"
         }
         System.out.printf("float = String : c = Float.parseFloat(%s) ->> Compile Error\n", str2);
@@ -1295,7 +1295,7 @@ public class TypeTester {
         System.out.printf("float = Student : c = " + student.toString() + " ->> Compile Error\n");
     }
 
-    public static void testDouble(){
+    public static void testDouble() {
         System.out.println("\n ************** TEST FOR DOUBLE****************\n");
         double a = 324.12, b = 12.3, c;
         System.out.println("===========================");
@@ -1315,18 +1315,18 @@ public class TypeTester {
         System.out.printf("%f * %f = %f\n", a, b, c);
 
         //division
-        c =  (a / b);
+        c = (a / b);
         System.out.printf("%f / %f = %f\n", a, b, c);
 
         //modulus
         c = a % b;
         System.out.printf("%f %% %f = %f\n", a, b, c);
 
-        c = a/0;
-        System.out.printf("c = %f / 0 = %f \n",a,c);
+        c = a / 0;
+        System.out.printf("c = %f / 0 = %f \n", a, c);
 
         //unary minus
-        a =  435.5;
+        a = 435.5;
         c = -a;
         System.out.printf("-%f = %f\n", a, c);
 
@@ -1335,7 +1335,7 @@ public class TypeTester {
         System.out.printf("+%f = %f\n", a, c);
 
         //prefix increment
-        a =  435.2;
+        a = 435.2;
         System.out.printf("++%f = %f\n", a, ++a);
 
         //postfix increment
@@ -1354,7 +1354,7 @@ public class TypeTester {
         System.out.println("| Bitwise operators |");
         System.out.println("======================");
 
-        System.out.println("There is no any bitwise operators for double");
+        System.out.println("There is no any bitwise operators for double\n");
 //        // bitwise AND
 //        a =  345.1f;
 //        c = (a & b);
@@ -1399,7 +1399,6 @@ public class TypeTester {
 //        a =  -424332423425L;
 //        c = (a >>> 1);
 //        System.out.printf("%f >>> 1 = %f\n", a, c);
-
 
 
         System.out.println("========================");
@@ -1484,7 +1483,7 @@ public class TypeTester {
 
         c = bt;
         System.out.printf("double = byte : c = %d ->> c = %f\n", bt, c);
-        c =  inter;
+        c = inter;
         System.out.printf("double = int : c = %d ->> c = %f\n", inter, c);
         c = ch;
         System.out.printf("double = char : c = '%c' ->> c = %f\n", ch, c);
@@ -1492,7 +1491,7 @@ public class TypeTester {
         System.out.printf("double = short : c = %d ->> c = %f\n", sh, c);
         c = lng;
         System.out.printf("double = long : c = %d ->> c = %f\n", lng, c);
-        c =  d;
+        c = d;
         System.out.printf("double = float : c = %f ->> c = %f\n", d, c);
         //c = (double)bool;
         System.out.printf("double = boolean : c = (float)%b ->> Compile Error\n", bool);
@@ -1501,7 +1500,7 @@ public class TypeTester {
         System.out.printf("double = String : c = Double.parseDouble(%s) ->> c = %f\n", str1, c);
         try {
             c = Double.parseDouble(str2);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println(e.toString()); // java.lang.NumberFormatException: For input string: "string"
         }
         System.out.printf("double = String : c = Double.parseDouble(%s) ->> Compile Error\n", str2);
@@ -1514,16 +1513,446 @@ public class TypeTester {
         System.out.printf("double = Student : c = " + student.toString() + " ->> Compile Error\n");
     }
 
-    public static void testChar(){
+    public static void testChar() {
         System.out.println("\n ************** TEST FOR CHAR****************\n");
+        char a = '5';
+        char b = '2';
+        char c;
+        System.out.println("===========================");
+        System.out.println("| Arithmetical operators |");
+        System.out.println("===========================");
+
+        //addition
+        c = (char) (a + b);
+        System.out.printf("%c + %c = %c\n", a, b, c);
+
+        //subtraction
+        c = (char) (a - b);
+        System.out.printf("%c - %c = %c\n", a, b, c);
+
+        //multiplication
+        c = (char) (a * b);
+        System.out.printf("%c * %c = %c\n", a, b, c);
+
+        //division
+        c = (char) (a / b);
+        System.out.printf("%c / %c = %c\n", a, b, c);
+
+        //modulus
+        c = (char) (a % b);
+        System.out.printf("%c %% %c = %c\n", a, b, c);
+        try {
+            c = (char) (a / 0);
+        } catch (ArithmeticException e) {
+            System.out.println(e.toString());
+        }
+        try {
+            c = (char) (a % 0);
+        } catch (ArithmeticException e) {
+            System.out.println(e.toString());
+        }
+
+        //unary minus
+        a = 5;
+        c = (char) -a;
+        System.out.printf("-%c = %c\n", a, c);
+
+        //unary plus
+        c = (char) +a;
+        System.out.printf("+%c = %c\n", a, c);
+
+        //prefix increment
+        a = 5;
+        System.out.printf("++%c = %c\n", a, ++a);
+
+        //postfix increment
+        a = '6';
+        System.out.printf("%c++ = %c\n", a, a++);
+
+        //prefix decrement
+        a = '4';
+        System.out.printf("--%c = %c\n", a, --a);
+
+        //postfix decrement
+        a = '4';
+        System.out.printf("%c-- = %c\n", a, a--);
+
+        System.out.println("======================");
+        System.out.println("| Bitwise operators |");
+        System.out.println("======================");
+
+        // bitwise AND
+        a = '9';
+        c = (char) (a & b);
+        System.out.printf("%c & %c = %c\n", a, b, c);
+        System.out.println("in binary form:");
+        System.out.printf("%s & %s = %s\n\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(b), Integer.toBinaryString(c));
+
+        // bitwise OR
+        c = (char) (a | b);
+        System.out.printf("%c | %c = %c\n", a, b, c);
+        System.out.println("in binary form:");
+        System.out.printf("%s | %s = %s\n\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(b), Integer.toBinaryString(c));
+
+        //bitwise XOR
+        c = (char) (a ^ b);
+        System.out.printf("%c ^ %c = %c\n", a, b, c);
+        System.out.println("in binary form:");
+        System.out.printf("%s ^ %s = %s\n\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(b), Integer.toBinaryString(c));
+
+        //bitwise unary compliment
+        c = (char) ~a;
+        System.out.printf("~%c = %c\n", a, c);
+        System.out.println("in binary form:");
+        System.out.printf("~%s = %s\n\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(c));
+
+        //left shift
+        c = (char) (a << 3);
+        System.out.printf("%c << 3 = %c\n", a, c);
+        System.out.println("in binary form:");
+        System.out.printf("%s << 3 = %s\n\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(c));
+
+        //right shift
+        c = (char) (a >> 2);
+        System.out.printf("%c >> 2 = %c\n", a, c);
+        System.out.println("in binary form:");
+        System.out.printf("%s >> 2 = %s\n\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(c));
+
+
+        // zero fill right shift
+        a = '6';
+        c = (char) (a >>> 2);
+        System.out.printf("%c >>> 2 = %c\n", a, c);
+        System.out.println("in binary form:");
+        System.out.printf("%s >>> 2 = %s\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(c));
+        // zero fill right shift with negative number
+        a = '9';
+        c = (char) (a >>> 1);
+        System.out.printf("%c >>> 1 = %c\n", a, c);
+        System.out.println("in binary form:");
+        System.out.printf("%s >>> 1 = %s\n", Integer.toBinaryString(a),
+                Integer.toBinaryString(c));
+
+
+        System.out.println("========================");
+        System.out.println("| Assignment operators |");
+        System.out.println("========================");
+
+        c = '7';
+        a = '5';
+        System.out.printf("%c += %c --> c = %c\n", c, a, c += a);
+        System.out.printf("%c -= %c --> c = %c\n", c, a, c -= a);
+        System.out.printf("%c *= %c --> c = %c\n", c, a, c *= a);
+        System.out.printf("%c /= %c --> c = %c\n", c, a, c /= a);
+        System.out.printf("%c %%= %c --> c = %c\n", c, a, c %= a);
+        System.out.printf("%c |= %c --> c = %c\n", c, a, c |= a);
+        System.out.printf("%c &= %c --> c = %c\n", c, a, c &= a);
+        System.out.printf("%c >>= 1 --> c = %c\n", c, c >>= 1);
+        System.out.printf("%c <<= 1 --> c = %c\n", c, c <<= 1);
+        System.out.printf("%c >>>= 1 --> c = %c\n", c, c >>>= 1);
+        System.out.printf("%c ^= %c --> c = %c\n", c, a, c ^= a);
+
+        System.out.println("========================");
+        System.out.println("| Relational operators |");
+        System.out.println("========================");
+
+        //greater than
+        System.out.printf("%c > %c --> %b\n", a, b, a > b);
+        //greater than or equal to
+        System.out.printf("%c >= %c --> %b\n", a, b, a >= b);
+        //less than
+        System.out.printf("%c < %c --> %b\n", a, b, a < b);
+        //less than or equal to
+        System.out.printf("%c <= %c --> %b\n", a, b, a <= b);
+        //equal to
+        System.out.printf("%c == %c --> %b\n", a, b, a == b);
+        //not equal to
+        System.out.printf("%c != %c --> %b\n", a, b, a != b);
+
+        System.out.println("=====================");
+        System.out.println("| Logical operators |");
+        System.out.println("=====================");
+
+        //logical AND
+        System.out.printf("(%c > %c) && (%c > 0) --> %b\n", a, b, a,
+                (a > b) && (a > 0));
+        //bitwise logical AND
+        System.out.printf("(%c > %c) & (%c > 0) --> %b\n", a, b, a,
+                (a > b) & (a > 0));
+        //logical OR
+        System.out.printf("(%c >= %c) || (%c != 0) --> %b\n", a, b, b,
+                (a >= b) || (b != 0));
+        //bitwise logical OR
+        System.out.printf("(%c >= %c) | (%c > 0) --> %b\n", a, b, b,
+                (a >= b) | (b != 0));
+        //logical XOR
+        System.out.printf("(%c >= %c) ^ (%c != 0) --> %b\n", a, b, b,
+                (a >= b) ^ (b != 0));
+
+        //logical NOT
+        System.out.printf("!(%c >= %c) --> %b\n", a, b, !(a >= b));
+
+
+        System.out.println("=====================");
+        System.out.println("| Another operators |");
+        System.out.println("=====================");
+
+        System.out.println("Ternany operator :");
+        //ternary operator
+        System.out.printf("%c > %c ? %c : %c  -->  %c\n\n", a, b, a, b, (a > b ? a : b));
+
+        System.out.println("Type cast operator :");
+
+        byte bt = 1;
+        short sh = -129;
+        int integ = 45345;
+        long L = 1000000L;
+        float fl = 1.9f;
+        double d = 123456789.625;
+        boolean bool = true;
+        String str1 = "123";
+        String str2 = "string";
+        Student student = new Student("Vladislav", 9);
+
+        c = (char) bt;
+        System.out.printf("char = byte : c = (char)%d ->> c = %c\n", bt, c);
+        c = (char) sh;
+        System.out.printf("char = short : c = (char)%d ->> c = %c\n", sh, c);
+        c = (char) integ;
+        System.out.printf("char = int : c = (char)%d ->> c = %c\n", integ, c);
+        c = (char) L;
+        System.out.printf("char = long : c = (chat)%d ->> c = %c\n", L, c);
+        c = (char) fl;
+        System.out.printf("char = float : c = (char)%f ->> c = %c\n", fl, c);
+        c = (char) d;
+        System.out.printf("char = double : c = (char)%f ->> c = %c\n", d, c);
+        //c = (char)bool;
+        System.out.printf("char = boolean : c = (char)%b ->> Compile Error\n", bool);
+
+        // c = (char)str1;
+        System.out.printf("char = String : c = (char)%s ->> Compile Error\n", str1);
+        //c = (char)str2;
+        System.out.printf("char = String : c = (char)%s ->> Compile Error\n", str2);
+
+        //c = (char)student;
+        System.out.printf("char = Student : c = " + student.toString() + " ->> Compile Error\n");
+
+
     }
 
-    public static void testString(){
+    public static void testString() {
         System.out.println("\n ************** TEST FOR STRING****************\n");
+        String a = new String("Java");
+        String b = new String("WEB");
+        String c;
+
+        System.out.println("===========================");
+        System.out.println("| Arithmetical operators |");
+        System.out.println("===========================");
+
+        //addition
+        c = a + b;
+        System.out.printf("%s + %s = %s\n", a, b, c);
+        //subtraction
+        // c =  (a - b);
+        //multiplication
+        //c =  (a * b);
+        //division
+        //   c =  (a / b);
+        //modulus
+        //  c =  (a % b);
+        //unary minus
+//        c =  -a;
+//
+//        //unary plus
+//        c = +a;
+//
+//        //prefix increment
+//        ++a ;
+//
+//        //postfix increment
+//        a ++;
+//        //prefix decrement
+//        --a;
+//        //postfix decrement
+//        a--;
+//
+        System.out.println("======================");
+        System.out.println("| Bitwise operators |");
+        System.out.println("======================");
+
+        System.out.println("There is no any bitwise operators for String");
+
+
+        System.out.println("========================");
+        System.out.println("| Assignment operators |");
+        System.out.println("========================");
+
+        c = "Java-Web Development";
+
+        System.out.printf("%s += %s --> c = %s\n", c, a, c += a);
+//
+
+        System.out.println("========================");
+        System.out.println("| Relational operators |");
+        System.out.println("========================");
+
+
+        //equals to
+        System.out.printf("%s == %s --> %b\n", a, b, a == b);
+        //not equal to
+        System.out.printf("%s!= %s --> %b\n", a, b, a != b);
+
+        System.out.println("=====================");
+        System.out.println("| Logical operators |");
+        System.out.println("=====================");
+
+        System.out.println("there is no any logical operators for String");
+
+        System.out.println("=====================");
+        System.out.println("| Another operators |");
+        System.out.println("=====================");
+
+        System.out.println("Ternany operator :");
+        //ternary operator
+        System.out.printf("%s == %s ? %s : %s  -->  %s\n\n", a, b, a, b, (a == b ? a : b));
+
+        System.out.println("Type cast operator :");
+
+        char ch = '\u0002';
+        byte bt = 1;
+        short sh = -129;
+        int integ = 45345;
+        long L = 1000000L;
+        float fl = 1.9f;
+        double d = 123456789.625;
+        boolean bool = true;
+        String str1 = "123";
+        String str2 = "string";
+        Student student = new Student("Vladislav", 9);
+
+//       c = (String)ch;
+//       c = (String)bt;
+//       c = (String)sh;
+//       c = (String)integ;
+//       c = (String)L;
+//       c = (String)fl;
+//       c = (String)d;
+//       c = (String)bool;
+        //c = (String)student;
+
+
+        System.out.println("========================");
+        System.out.println("| Instanceof operators |");
+        System.out.println("========================");
+
+        String str = "Java is the BEST!";
+        System.out.printf("%s instanceof String ==> %b", str, str instanceof String);
     }
 
-    public static void testStudent(){
+    public static void testStudent() {
         System.out.println("\n ************** TEST FOR STUDENT****************\n");
+
+        Student s1 = new Student("Ivan", 10);
+        Student s2 = new Student("Dimitry", 8);
+        Student s3;
+
+        System.out.println("========================");
+        System.out.println("| Arithmetical operators |");
+        System.out.println("========================");
+
+        System.out.println("There is no arithmetical operators for Student");
+//        s3 = s1 + s2;
+//        s3 = s1 - s2;
+//        s3 = s1 * s2;
+//        s3 = s1 / s2;
+//        s3 = s1 % s2;
+//        s3 = s1++;
+//        s3 = s1--;
+//        s3 = ++s1;
+//        s3 = --s1;
+//        s3 = -s1;
+//        s3 = +s1;
+
+        System.out.println("========================");
+        System.out.println("| Bitwise operators |");
+        System.out.println("========================");
+
+        System.out.println("There is no bitwise operators for Student");
+//        s3 = s1 & s2;
+//        s3 = s1 | s2;
+//        s3 = s1 ^ s2;
+//        s3 = s1 >> 1;
+//        s3 = s2 << 2;
+//        s3 = ~s2;
+//        s3 = s1>>>3;
+//
+
+        System.out.println("========================");
+        System.out.println("| Assignment operators |");
+        System.out.println("========================");
+
+//        System.out.println("There is no assignment operators for Student");
+//        s3+=s1;
+//        s3-=s2;
+//        s3*=s1;
+//        s3/=s2;
+//        s3%=s1;
+//        s3|=s2;
+//        s3&=s1;
+//        s3^=s2;
+//        s3>>=s1;
+//        s3<<=s2;
+//        s3>>>=s1;
+
+        System.out.println("========================");
+        System.out.println("| Relational operators |");
+        System.out.println("========================");
+
+//        s1>s2;
+//        s1<s2;
+//        s1>=s2;
+//        s1<=s2;
+
+        System.out.printf("%s == %s ? %s : %s \n\n", s1, s2,s1,s2, (s1 == s2 ? s1 : s2));
+
+        System.out.println("Type cast operators :");
+
+//        char ch = '\u0002';
+//        byte bt = 1;
+//        short sh = -129;
+//        int integ = 45345;
+//        long L = 1000000L;
+//        float fl = 1.9f;
+//        double d = 123456789.625;
+//        boolean bool = true;
+//        String str1 = "123";
+//
+
+//        s3 = (Student) ch;
+//        s3 = (Student) bt;
+//        s3 = (Student) sh;
+//        s3 = (Student) integ;
+//        s3 = (Student) L;
+//        s3 = (Student) fl;
+//        s3 = (Student) d;
+//        s3 = (Student) bool;
+//        s3 = (Student) str1;
+
+
+        System.out.println("========================");
+        System.out.println("| Instanceof operator |");
+        System.out.println("========================");
+
+        System.out.printf("%s instanceof Object ==> %b\n",s1,s1 instanceof Object);
+        System.out.printf("%s instanceof Student==> %b\n",s1,s1 instanceof Student);
     }
 
 }
