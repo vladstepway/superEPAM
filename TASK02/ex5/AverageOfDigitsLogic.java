@@ -17,6 +17,6 @@ public class AverageOfDigitsLogic {
         int d = N/1000%10;
         int e = N/10_000%10;
         int f = N/100_000%10;
-        return (double)(a*b*c*d*e*f)/6;
+        return Math.pow(a*b*c*d*e*f,1/6);
     }
 }
