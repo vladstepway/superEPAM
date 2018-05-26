@@ -6,20 +6,20 @@ public class AdditionalTesting {
     public static void main(String[] args) {
         //System.out.println("Parity of numbers :");
         Scanner in = new Scanner(System.in);
-//        int a = in.nextInt();
-//        int b = in.nextInt();
-//        int c = in.nextInt();
-//        System.out.println("Numbers have the same parity : "+ParityOfNumberLogic.checkParity(a,b,c));
+       int a = in.nextInt();
+       int b = in.nextInt();
+       int c = in.nextInt();
+       System.out.println("Numbers have the same parity : "+ParityOfNumberLogic.checkParity(a,b,c));
 
-//        System.out.println("Palindrom number : ");
-//        int N = in.nextInt();
-//        System.out.println("Is number "+N+" a palindrom : "+PalindromNumber.isPalindrom(N));
+       System.out.println("Palindrom number : ");
+       int N = in.nextInt();
+       System.out.println("Is number "+N+" a palindrom : "+PalindromNumber.isPalindrom(N));
 
-//        System.out.println("Triangle sides :");
-//        int x = in.nextInt();
-//        int y = in.nextInt();
-//        int z = in.nextInt();
-//        System.out.println("Is right sides of triangle :"+TriangleSideLogic.isTriangleSide(x,y,z));
+       System.out.println("Triangle sides :");
+       int x = in.nextInt();
+       int y = in.nextInt();
+       int z = in.nextInt();
+       System.out.println("Is right sides of triangle :"+TriangleSideLogic.isTriangleSide(x,y,z));
 
         System.out.println("Point of rectangle :");
         int x1 = in.nextInt();
