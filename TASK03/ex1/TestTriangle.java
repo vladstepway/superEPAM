@@ -17,9 +17,9 @@ public class TestTriangle {
         int x3 = in.nextInt();
         int y3 = in.nextInt();
 
-        if (PointOfTriangle.isVertextOfTriangle(x1,y1,x2,y2,x3,y3)){
+        if (PointOfTriangleLogic.isVertextOfTriangle(x1,y1,x2,y2,x3,y3)){
             System.out.println("Right vertexes of triangle");
-            if (PointOfTriangle.isOrthogonalTriangle(x1,y1,x2,y2,x3,y3)){
+            if (PointOfTriangleLogic.isOrthogonalTriangle(x1,y1,x2,y2,x3,y3)){
                 System.out.println("It is an orthogonal triangle");
             }
             else System.out.println("Its not an orthogonal triangle");
