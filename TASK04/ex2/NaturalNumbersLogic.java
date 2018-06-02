@@ -1,6 +1,9 @@
 package by.stepovoy.task04.ex2;
 
 public class NaturalNumbersLogic {
+
+    public static final int NUM_OF_DIGITS = 10;
+
     public static int isNatural(int num) {
         return num < 0 ? -num : num;
     }
@@ -49,6 +52,7 @@ public class NaturalNumbersLogic {
 
     public static StringBuffer findSimpleDivisors(int num) {
         num = isNatural(num);
+
         StringBuffer dividers = new StringBuffer();
         for (int i = 1; i <= num >>> 1; i++) {
             if (isDivider(num, i)) {
@@ -91,7 +95,7 @@ public class NaturalNumbersLogic {
         int tempNumber;
         int digits;
         int count = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < NUM_OF_DIGITS; i++) {
             digits = num;
             while (digits > 0) {
                 tempNumber = digits % 10;
