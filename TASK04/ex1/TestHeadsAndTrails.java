@@ -1,7 +1,5 @@
 package by.stepovoy.task04.ex1;
 
-import by.stepovoy.task04.ex1.HeadsAndTrailsLogic;
-
 import java.util.Scanner;
 
 public class TestHeadsAndTrails {
@@ -10,7 +8,8 @@ public class TestHeadsAndTrails {
         Scanner in = new Scanner(System.in);
         int count = in.nextInt();
         int heads = HeadsAndTrailsLogic.tossCoin(count);
+        int trails = HeadsAndTrailsLogic.countTrails(count,heads);
 
-        System.out.printf("Coin tossed %d , heads = %d ,trails = %d",count,heads,count-heads);
+        System.out.printf("Coin tossed %d times, heads = %d ,trails = %d",count,heads,trails);
     }
 }

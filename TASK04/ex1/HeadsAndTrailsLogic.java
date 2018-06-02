@@ -40,4 +40,15 @@ public class HeadsAndTrailsLogic {
 
         return countHead;
     }
+
+    /**]
+     * This method count number of trails
+     *
+     * @param numToss number of flips
+     * @param heads number of heads
+     * @return Return number of trails
+     */
+    public static int countTrails(int numToss,int heads) {
+        return numToss - heads;
+    }
 }
