@@ -2,6 +2,7 @@ package by.stepovoy.task03.ex2;
 
 public class DragonHeadsLogic {
 
+    public final static int ERROR_MESSAGE = -1;
     public final static int NUM_EYES = 2;
     public final static int NUM_HEADS_B4_200 = 3;
     public final static int NUM_HEADS_AFTER_200 = 2;
@@ -13,7 +14,7 @@ public class DragonHeadsLogic {
         int heads = NUM_HEADS_B4_200;
 
         if (year < 0) {
-            heads = -1;
+            heads = ERROR_MESSAGE;
         } else if (year == 0) {
             heads = NUM_HEADS_B4_200;
         } else if (year <= BORDER_BEFORE_200) {
