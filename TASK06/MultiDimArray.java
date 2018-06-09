@@ -11,6 +11,11 @@ public class MultiDimArray {
     public static final double ERROR_CODE = -9999999999999.0;
     public static final int ERROR_INDEX = -1;
     public static final int BOUND_OF_MULTI_ARRAY = 3;
+    public static final double DEFAULT_SUM = 0.;
+    public static final double DEFAULT_MULTIPLE = 1.;
+    public static final int FIRST_ARRAY_INDEX = 0;
+    public static final int SECOND_ARRAY_INDEX = 1;
+
 
     /**
      * method finds minimal value in array
@@ -20,7 +25,7 @@ public class MultiDimArray {
      */
 
     public static double findMinValue(double[][] array) {
-        double min = array[0][0];
+        double min = array[FIRST_ARRAY_INDEX][FIRST_ARRAY_INDEX];
         if (!isEmpty(array)) {
             for (double[] row : array) {
                 for (double cow : row) {
@@ -42,7 +47,7 @@ public class MultiDimArray {
      * @return maximal value in array
      */
     public static double findMaxValue(double[][] array) {
-        double max = array[0][0];
+        double max = array[FIRST_ARRAY_INDEX][FIRST_ARRAY_INDEX];
         if (!isEmpty(array)) {
             for (double[] row : array) {
                 for (double cow : row) {
@@ -64,16 +69,10 @@ public class MultiDimArray {
      * @return average geometrical value
      */
     public static double findAvgGeomMean(double[][] array) {
-        double multiple = 1.;
-        if (!isEmpty(array) && isPositiveElements(array)) {
-            for (double[] row : array) {
-                for (double cow : row) {
-                    multiple *= cow;
-                }
-            }
-            return Math.pow(multiple, 1.0 / (array.length * array[0].length));
-        } else
-            return ERROR_CODE;
+        return !isEmpty(array) && isPositiveElements(array)
+                ? Math.pow(findMultiple(array),
+                1.0 / (array.length * array[FIRST_ARRAY_INDEX].length))
+                : ERROR_CODE;
     }
 
     /**
@@ -83,16 +82,9 @@ public class MultiDimArray {
      * @return average arithmetical value
      */
     public static double findAvgArithmMean(double[][] array) {
-        double sum = 0.;
-        if (!isEmpty(array)) {
-            for (double[] row : array) {
-                for (double cow : row) {
-                    sum += cow;
-                }
-            }
-            return sum / (array.length * array[0].length);
-        } else
-            return ERROR_CODE;
+        return !isEmpty(array)
+                ? findSum(array) / (array.length * array[FIRST_ARRAY_INDEX].length)
+                : ERROR_CODE;
     }
 
     /**
@@ -104,8 +96,8 @@ public class MultiDimArray {
     public static int[] findLocalMinIndex(double[][] array) {
         int[] minIndex = {ERROR_INDEX, ERROR_INDEX};
         if (!isEmpty(array) && isMultiArray(array)) {
-            for (int i = 1; i < array.length - 1; i++) {
-                for (int j = 1; j < array[i].length - 1; j++) {
+            for (int i = SECOND_ARRAY_INDEX; i < array.length - 1; i++) {
+                for (int j = SECOND_ARRAY_INDEX; j < array[i].length - 1; j++) {
                     if (array[i][j] < array[i - 1][j - 1]
                             && array[i][j] < array[i - 1][j]
                             && array[i][j] < array[i - 1][j + 1]
@@ -114,8 +106,8 @@ public class MultiDimArray {
                             && array[i][j] < array[i + 1][j - 1]
                             && array[i][j] < array[i + 1][j]
                             && array[i][j] < array[i + 1][j + 1]) {
-                        minIndex[0] = i;
-                        minIndex[1] = j;
+                        minIndex[FIRST_ARRAY_INDEX] = i;
+                        minIndex[SECOND_ARRAY_INDEX] = j;
                         return minIndex;
                     }
                 }
@@ -133,8 +125,8 @@ public class MultiDimArray {
     public static int[] findLocalMaxIndex(double[][] array) {
         int[] maxIndex = {ERROR_INDEX, ERROR_INDEX};
         if (!isEmpty(array) && isMultiArray(array)) {
-            for (int i = 1; i < array.length - 1; i++) {
-                for (int j = 1; j < array[i].length - 1; j++) {
+            for (int i = SECOND_ARRAY_INDEX; i < array.length - 1; i++) {
+                for (int j = SECOND_ARRAY_INDEX; j < array[i].length - 1; j++) {
                     if (array[i][j] > array[i - 1][j - 1]
                             && array[i][j] > array[i - 1][j]
                             && array[i][j] > array[i - 1][j + 1]
@@ -143,8 +135,8 @@ public class MultiDimArray {
                             && array[i][j] > array[i + 1][j - 1]
                             && array[i][j] > array[i + 1][j]
                             && array[i][j] > array[i + 1][j + 1]) {
-                        maxIndex[0] = i;
-                        maxIndex[1] = j;
+                        maxIndex[FIRST_ARRAY_INDEX] = i;
+                        maxIndex[SECOND_ARRAY_INDEX] = j;
                         return maxIndex;
                     }
                 }
@@ -160,9 +152,9 @@ public class MultiDimArray {
      * @return transposed matrix
      */
     public static double[][] transpose(double[][] array) {
-        double[][] transMatrix = new double[array[0].length][array.length];
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
+        double[][] transMatrix = new double[array[FIRST_ARRAY_INDEX].length][array.length];
+        for (int i = FIRST_ARRAY_INDEX; i < array.length; i++) {
+            for (int j = FIRST_ARRAY_INDEX; j < array[i].length; j++) {
                 transMatrix[j][i] = array[i][j];
             }
         }
@@ -177,7 +169,7 @@ public class MultiDimArray {
      */
     public static boolean isMultiArray(double[][] array) {
         return array.length >= BOUND_OF_MULTI_ARRAY
-                && array[0].length >= BOUND_OF_MULTI_ARRAY;
+                && array[FIRST_ARRAY_INDEX].length >= BOUND_OF_MULTI_ARRAY;
     }
 
     /**
@@ -187,7 +179,7 @@ public class MultiDimArray {
      * @return true if multi array is empty,false if doesn't
      */
     public static boolean isEmpty(double[][] array) {
-        return array.length <= 0 && array[0].length <= 0;
+        return array.length <= 0 && array[FIRST_ARRAY_INDEX].length <= 0;
     }
 
     /**
@@ -206,5 +198,38 @@ public class MultiDimArray {
         }
         return true;
     }
+
+    /**
+     * method finds sum of an array values
+     *
+     * @param array multidimensional floating-point array
+     * @return sum of an array values
+     */
+    public static double findSum(double[][] array) {
+        double sum = DEFAULT_SUM;
+        for (double[] row : array) {
+            for (double cow : row) {
+                sum += cow;
+            }
+        }
+        return sum;
+    }
+
+    /**
+     * method finds multiple of an array values
+     *
+     * @param array multidimensional floating-point array
+     * @return multiple of an array values
+     */
+    public static double findMultiple(double[][] array) {
+        double multiple = DEFAULT_MULTIPLE;
+        for (double[] row : array) {
+            for (double cow : row) {
+                multiple *= cow;
+            }
+        }
+        return multiple;
+    }
+
 
 }
