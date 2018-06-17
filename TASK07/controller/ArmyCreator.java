@@ -42,7 +42,6 @@ public class ArmyCreator {
     public static DynamicArray createArmy(int num) {
         Random random = new Random(System.currentTimeMillis());
         DynamicArray array = new DynamicArray(num);
-       // CaptainFunctions by.stepovoy.task07.logic = new CaptainFunctions();
 
         int size = random.nextInt(num - 1);
         int randNumber = random.nextInt(MAX_BORDER);
@@ -84,7 +83,5 @@ public class ArmyCreator {
                 DAMAGE_MAGICIAN[name], SKILL_MAGICIAN[name], MANA_MAGICIAN[name]);
         return mag;
     }
-
-
 }
 
