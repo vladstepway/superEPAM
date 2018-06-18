@@ -190,7 +190,7 @@ public class OneDimArrayLogic {
                 array[i] = random.nextDouble() * (right - left) + left;
 
             } else if (left == right) {
-                array[i] = -1;
+                array[i] = ERROR_MESSAGE;
             } else {
                 array[i] = random.nextDouble() * (left - right) + right;
             }
