@@ -1,7 +1,7 @@
 package by.stepovoy.task07.logic;
 
 import by.stepovoy.task07.model.entities.Unit;
-import by.stepovoy.task07.model.utility.DynamicArray;
+import by.stepovoy.task07.model.container.DynamicArray;
 
 public class ArmyLogic {
 
@@ -36,8 +36,6 @@ public class ArmyLogic {
     }
 
     public static Unit findByName(DynamicArray array, String name) {
-        CaptainFunctions logic = new CaptainFunctions();
-        DynamicArray nameArray = new DynamicArray();
         Unit[] units = array.getUnits();
         if (!array.isEmpty()) {
             for (int i = 0; i < array.getSize(); i++) {
