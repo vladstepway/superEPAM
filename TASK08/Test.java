@@ -1,9 +1,8 @@
 package by.stepovoy.task08;
 
-import by.stepovoy.task08.model.RecursiveLogic;
+import by.stepovoy.task08.logic.RecursiveLogic;
 import by.stepovoy.task08.view.Printer;
 
-import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 public class Test {
