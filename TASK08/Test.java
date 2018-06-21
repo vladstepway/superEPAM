@@ -1,5 +1,9 @@
 package by.stepovoy.task08;
 
+import by.stepovoy.task08.model.RecursiveLogic;
+import by.stepovoy.task08.view.Printer;
+
+import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 public class Test {
@@ -7,9 +11,9 @@ public class Test {
         Scanner in = new Scanner(System.in);
         Printer.print("Enter number :");
         int number = in.nextInt();
-        Printer.print(RecursiveLogic.calcSumOfDigitsRecursive(number));
+        /// Printer.print(RecursiveLogic.calcSumOfDigitsRecursive(number));
         Printer.print("Enter number :");
-        number = in.nextInt();
+        //number = in.nextInt();
         Printer.print("Enter power :");
         int power = in.nextInt();
         Printer.print(RecursiveLogic.powNumber(number, power));
@@ -21,5 +25,12 @@ public class Test {
         Printer.print("Enter index of fibonacci number :");
         number = in.nextInt();
         Printer.print(RecursiveLogic.findFibonacci(number));
+
+        number = 3;
+        char first = 'A';
+        char temp = 'B';
+        char second = 'C';
+
+        RecursiveLogic.solveHanoiTower(number, first, temp, second);
     }
 }
