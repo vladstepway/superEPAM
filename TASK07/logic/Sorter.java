@@ -1,28 +1,39 @@
 package by.stepovoy.task07.logic;
 
+import by.stepovoy.task07.exception.EmptyContainerException;
 import by.stepovoy.task07.model.container.DynamicArray;
 import by.stepovoy.task07.model.entities.Unit;
 
-public class Sorter {
-    public static void sortByName(DynamicArray array) {
+public abstract class Sorter implements Sortable {
+    public static void sortByName(DynamicArray array) throws EmptyContainerException {
         if (!isEmptyContainer(array)) {
-            InsertionSort.sort(array);
+            new InsertionSort().sort(array);
         }
     }
 
-    private static boolean isEmptyContainer(DynamicArray array) {
+    private static boolean isEmptyContainer(DynamicArray array) throws EmptyContainerException {
         return array.isEmpty();
+    }
+
+
+    public abstract Unit[] sort(DynamicArray array);
+
+    @Override
+    public void swap(Unit unit1, Unit unit2) {
+        Unit tmp = unit1;
+        unit1 = unit2;
+        unit2 = tmp;
     }
 }
 
-class InsertionSort {
-    public static Unit[] sort(DynamicArray array) {
+class InsertionSort extends Sorter {
+    public Unit[] sort(DynamicArray array) {
         Unit[] units = array.getUnits();
         for (int j = 1; j < array.getSize(); j++) {
             Unit unit = units[j];
             int i = j - 1;
-
-            while (i >= 0 && less(unit.getName(), units[i].getName())) {
+            while (i >= 0
+                    && less(unit.getName(), units[i].getName())) {
                 units[i + 1] = units[i];
                 i--;
             }
@@ -36,36 +47,39 @@ class InsertionSort {
     }
 }
 
-class BubbleSort implements Sortable {
-    public void sort(DynamicArray array) {
+class BubbleSort extends Sorter {
+    public Unit[] sort(DynamicArray array) {
         Unit[] units = array.getUnits();
-        Unit temp;
-        int sortedBorder;
-        int unSortedBorder = units.length - 1;
+
         boolean change = false;
-        for (int i = 0; i < unSortedBorder; i++) {
-            sortedBorder = units.length - 1 - i;
-            for (int j = 0; j < sortedBorder; j++) {
+        while (!change) {
+            change = true;
+            for (int j = 0; j < units.length - 1; j++) {
                 if (units[j].getDamagePoints() > units[j + 1].getDamagePoints()) {
-                    change = true;
+                    change = false;
                     swap(units[j], units[j + 1]);
-                    temp = units[j];
-                    units[j] = units[j + 1];
-                    units[j + 1] = temp;
                 }
             }
-            if (!change) {
-                return;
-            }
         }
+        return units;
     }
 
-    @Override
-    public void swap(Unit unit1, Unit unit2) {
-        Unit temp = unit1;
-        unit1 = unit2;
-        unit2 = temp;
-    }
 }
 
+class SelectionSort extends Sorter {
+
+    @Override
+    public Unit[] sort(DynamicArray array) {
+        Unit[] units = array.getUnits();
+        for (int i = 0; i < units.length - 1; i++) {
+            int index = i;
+            for (int j = i + 1; j < units.length; j++)
+                if (units[j].getDamagePoints() < units[index].getDamagePoints())
+                    index = j;
+            swap(units[index], units[i]);
+        }
+        return units;
+    }
+
+}
 

@@ -1,5 +1,8 @@
 package by.stepovoy.task07.model.container;
 
+
+import by.stepovoy.task07.exception.EmptyContainerException;
+import by.stepovoy.task07.exception.OutOfRangeException;
 import by.stepovoy.task07.model.entities.Unit;
 
 import java.util.Arrays;
@@ -8,11 +11,15 @@ public class DynamicArray {
     private Unit[] units;
     private int size;
     private int capacity = 10;
-    private static final int DEFAULT_MEMORY = 10;
-
 
     public DynamicArray() {
-        units = new Unit[size];
+        capacity = 10;
+        units = new Unit[capacity];
+    }
+
+    public DynamicArray(int memory) {
+
+        units = new Unit[memory];
     }
 
 
@@ -20,7 +27,16 @@ public class DynamicArray {
         units = Arrays.copyOf(unit, unit.length);
     }
 
-    public boolean isEmpty() {
+
+    private void expand() {
+        capacity *= 2;
+        units = Arrays.copyOf(units, capacity);
+    }
+
+    public boolean isEmpty() throws EmptyContainerException {
+        if (getSize() == 0) {
+            throw new EmptyContainerException("Size of container is null");
+        }
         return getSize() == 0;
     }
 
@@ -48,26 +64,29 @@ public class DynamicArray {
         this.size = size;
     }
 
-    public void add(Unit... unit) {
-        int currentSize = getSize() + unit.length;
-        Unit[] temp = Arrays.copyOf(units, currentSize);
-        for (int i = getSize(), j = 0; i < currentSize; i++, j++) {
-            temp[i] = unit[j];
+    public void add(Unit unit) {
+        if (size >= capacity) {
+            expand();
         }
-        setSize(getSize() + unit.length);
-        setUnits(temp);
+        units[size++] = unit;
     }
 
-    public Unit getUnit(int index) {
+    public void add(Unit... unit) {
+        for (Unit unit1 : unit) {
+            add(unit1);
+        }
+    }
+
+    public Unit getUnit(int index) throws OutOfRangeException {
         rangeCheck(index);
-        if (contains(units[index - 1])) {
-            return units[index - 1];
+        if (contains(units[index])) {
+            return units[index];
         }
         return null;
     }
 
     public boolean contains(Unit unit) {
-        for (int i = 0; i < getSize(); i++) {
+        for (int i = 0; i < size; i++) {
             if (units[i].equals(unit)) {
                 return true;
             }
@@ -75,18 +94,16 @@ public class DynamicArray {
         return false;
     }
 
-    public void remove(int index) {
+    public void remove(int index) throws OutOfRangeException {
         rangeCheck(index);
-        int currentSize = getSize() - 1;
-        for (int i = index; i < currentSize; i++) {
-            units[i] = units[i + 1];
-        }
-        setSize(currentSize);
+        System.arraycopy(units, index + 1,
+                units, index, units.length - 1 - index);
+
     }
 
-    private void rangeCheck(int index) {
-        if (index >= getSize())
-            throw new IndexOutOfBoundsException();
+    private void rangeCheck(int index) throws OutOfRangeException {
+        if (index >= getSize() || index < 0)
+            throw new OutOfRangeException("Out of range!");
     }
 
 

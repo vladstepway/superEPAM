@@ -41,7 +41,7 @@ public class ArmyCreator {
 
     public static DynamicArray createArmy(int num) {
         Random random = new Random(System.currentTimeMillis());
-        DynamicArray array = new DynamicArray();
+        DynamicArray array = new DynamicArray(num);
 
 
         int size = random.nextInt(num - 1);
@@ -71,17 +71,28 @@ public class ArmyCreator {
 
     public static Archer createArcher() {
         Random random = new Random(System.currentTimeMillis());
+
         int name = random.nextInt(NUMBER_OF_NAMES);
-        Archer archer = new Archer(NAMES[name], HEALTH_ARCHER[name],
-                DAMAGE_ARCHER[name], SKILL_ARCHER[name], ACCURACY_ARCHER[name]);
+
+        Archer archer = new Archer(NAMES[name],
+                HEALTH_ARCHER[name],
+                DAMAGE_ARCHER[name],
+                SKILL_ARCHER[name],
+                ACCURACY_ARCHER[name]);
         return archer;
     }
 
     public static Magician createMagician() {
         Random random = new Random(System.currentTimeMillis());
+
         int name = random.nextInt(NUMBER_OF_NAMES);
-        Magician mag = new Magician(NAMES[name], HEALTH_MAGICIAN[name],
-                DAMAGE_MAGICIAN[name], SKILL_MAGICIAN[name], MANA_MAGICIAN[name]);
+
+        Magician mag = new Magician(NAMES[name],
+                HEALTH_MAGICIAN[name],
+                DAMAGE_MAGICIAN[name],
+                SKILL_MAGICIAN[name],
+                MANA_MAGICIAN[name]);
+
         return mag;
     }
 
