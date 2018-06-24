@@ -12,21 +12,24 @@ import by.stepovoy.task07.view.Printer;
 public class Test {
     public static void main(String[] args) {
 
+        DynamicArray array = null;
         int num = 10;
-        DynamicArray array = ArmyCreator.createArmy(num);
-        Printer.print(array);
-
-        Printer.print("Army is empty :" + CaptainFunctions.isEmpty(array));
+        int findNumber = 3;
         int deleteNumber = 2;
         try {
+
+            array = ArmyCreator.createArmy(num);
+
+            Printer.print(array);
+
+            Printer.print("Army is empty :" + CaptainFunctions.isEmpty(array));
+
             CaptainFunctions.remove(deleteNumber, array);
-        } catch (OutOfRangeException e) {
-            e.printStackTrace();
-        }
-        Printer.print(array);
-        int findNumber = 5;
-        try {
+
+            Printer.print(array);
+
             Printer.print("Soldier with index 5 " + CaptainFunctions.getUnit(findNumber, array));
+
         } catch (OutOfRangeException e) {
             e.printStackTrace();
         }
@@ -43,6 +46,8 @@ public class Test {
 
             Sorter.sortByName(array);
         } catch (EmptyContainerException e) {
+            e.printStackTrace();
+        } catch (OutOfRangeException e) {
             e.printStackTrace();
         }
         Printer.print(array);

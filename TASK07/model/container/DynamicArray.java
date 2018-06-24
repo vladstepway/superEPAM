@@ -85,6 +85,11 @@ public class DynamicArray {
         return null;
     }
 
+    public void setUnit(int index, Unit unit) throws OutOfRangeException {
+        rangeCheck(index);
+        this.units[index] = unit;
+    }
+
     public boolean contains(Unit unit) {
         for (int i = 0; i < size; i++) {
             if (units[i].equals(unit)) {

@@ -1,5 +1,6 @@
 package by.stepovoy.task07.utility;
 
+import by.stepovoy.task07.exception.OutOfRangeException;
 import by.stepovoy.task07.logic.CaptainFunctions;
 import by.stepovoy.task07.model.container.DynamicArray;
 import by.stepovoy.task07.model.entities.Archer;
@@ -10,7 +11,7 @@ import java.util.Random;
 
 public class ArmyCreator {
 
-    public static final int NUMBER_OF_NAMES = 5;
+    private static final int NUMBER_OF_NAMES = 5;
 
 
     private static final String NAMES[] = {"Hrogeirr",
@@ -39,12 +40,12 @@ public class ArmyCreator {
 
 
 
-    public static DynamicArray createArmy(int num) {
+    public static DynamicArray createArmy(int num) throws OutOfRangeException {
         Random random = new Random(System.currentTimeMillis());
         DynamicArray array = new DynamicArray(num);
 
-
         int size = random.nextInt(num - 1);
+
         int randNumber = random.nextInt(MAX_BORDER);
         if (size > 0 && size <= num) {
             for (int i = 0; i < size; i++) {
@@ -57,7 +58,7 @@ public class ArmyCreator {
                 }
             }
         } else
-            return null;
+            throw new OutOfRangeException("Illegal random number!");
         return array;
     }
 
