@@ -1,7 +1,7 @@
 package by.stepovoy.task07.utility;
 
 import by.stepovoy.task07.exception.OutOfRangeException;
-import by.stepovoy.task07.logic.CaptainFunctions;
+import by.stepovoy.task07.logic.functions.CaptainFunctions;
 import by.stepovoy.task07.model.container.DynamicArray;
 import by.stepovoy.task07.model.entities.Archer;
 import by.stepovoy.task07.model.entities.Magician;
